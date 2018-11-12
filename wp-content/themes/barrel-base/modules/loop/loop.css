@@ -1,0 +1,30 @@
+.loop {
+	display: flex;
+	flex-direction: column;
+	@include break--sm {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	& .container {  
+		width: auto;
+		display: flex;
+    	flex-wrap: wrap;
+    	padding: 0 0.9rem;
+		@include break--sm {
+			width: 100%;
+			padding: 0 1.35rem;
+	    }
+		@include break--md {
+			padding: 0 2.25rem;
+	    }
+	}
+	&__title {
+		width: 100%;
+		text-align: center;
+		margin: 1.8rem auto;
+		@include break--sm {
+			margin: 3.6rem auto;
+		}
+	}
+}

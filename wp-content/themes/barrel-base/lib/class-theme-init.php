@@ -12,12 +12,10 @@ class Base_Theme extends BB_Theme {
 
     add_action( 'after_setup_theme', array( &$this, 'register_menus' ) );
     add_filter( 'image_size_names_choose', array( &$this, 'image_size_names_choose' ) );
-		add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_scripts_and_styles' ) );
+    add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_scripts_and_styles' ) );
 
-		add_action( 'wp_head', array(&$this, 'add_critical_css'), 1);
-		add_action( 'wp_footer', array(&$this, 'load_rest_css') );
-
-    add_action( 'wp_head', array( &$this, 'print_site_favicons' ) );
+    add_action( 'wp_head', array( &$this, 'print_scripts_head_meta' ) );
+    add_action( 'wp_footer', array( &$this, 'print_scripts_before_body_end' ) );
 
     add_filter( 'show_admin_bar', '__return_false' );
 
@@ -26,10 +24,7 @@ class Base_Theme extends BB_Theme {
     add_shortcode( 'year', array( &$this, 'shortcode_year' ) );
 
     add_filter( 'tiny_mce_before_init', array( &$this, 'insert_formats' ) );
-		add_filter( 'mce_buttons_2', array( &$this, 'add_mce_button' ), 10, 2 );
-
-		add_filter( 'upload_mimes', array( &$this, 'cc_mime_types' ));
-    add_filter( 'gform_tabindex', '__return_false' );
+    add_filter( 'mce_buttons_2', array( &$this, 'add_mce_button' ), 10, 2 );
 
     add_editor_style();
 
@@ -69,6 +64,30 @@ class Base_Theme extends BB_Theme {
     foreach( $types as $type ) {
       $this->add_post_type($type);
     }
+  }
+
+  /*
+   * Enable support for Post Formats.
+   */
+  public function add_post_formats()
+  {
+    // Rename any of the post formats
+    add_filter('gettext_with_context', function($translation, $text, $context, $domain) {
+        $names = array(
+            'Standard'  => 'Article',
+            'Aside'     => 'Recipe'
+        );
+        if ($context == 'Post format') {
+            $translation = str_replace(array_keys($names), array_values($names), $text);
+        }
+        return $translation;
+    }, 10, 4);
+
+    add_theme_support( 'post-formats', array(
+      'aside',
+      'video',
+      'gallery',
+    ) );
   }
 
   /**
@@ -137,6 +156,34 @@ class Base_Theme extends BB_Theme {
     add_theme_support( 'title-tag' );
     add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption' ) );
     add_theme_support( 'post-thumbnails' );
+
+    // Add support for SVG uploads
+    // Allow SVGs to be uploaded
+    add_filter('upload_mimes', function($mimes){
+      $mimes['svg'] = 'image/svg+xml';
+      return $mimes;
+    });
+
+    // Display the size properly
+    add_filter('wp_update_attachment_metadata', function($data, $id){
+      $attachment = get_post($id); // Filter makes sure that the post is an attachment
+      $mime_type = $attachment->post_mime_type; // The attachment mime_type
+
+      //If the attachment is an svg
+      if($mime_type == 'image/svg+xml'){
+        //If the svg metadata are empty or the width is empty or the height is empty
+        //then get the attributes from xml.
+        if(empty($data) || empty($data['width']) || empty($data['height'])){
+          $xml = simplexml_load_file(wp_get_attachment_url($id));
+          $attr = $xml->attributes();
+          $viewbox = explode(' ', $attr->viewBox);
+          $data['width'] = isset($attr->width) && preg_match('/\d+/', $attr->width, $value) ? (int) $value[0] : (count($viewbox) == 4 ? (int) $viewbox[2] : null);
+          $data['height'] = isset($attr->height) && preg_match('/\d+/', $attr->height, $value) ? (int) $value[0] : (count($viewbox) == 4 ? (int) $viewbox[3] : null);
+        }
+      }
+      return $data;
+
+    }, 10, 2);
   }
 
   /**
@@ -194,6 +241,11 @@ class Base_Theme extends BB_Theme {
     {
       wp_localize_script( $handle, 'wpVars', $wp_vars );
     }
+
+    // styles
+    if ( !IS_DEV ) {
+      wp_enqueue_style( $handle, "$script_path/main.min.css", array(), $version, 'all' );
+    }
   }
 
   /**
@@ -211,21 +263,17 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Print favicons saved in the theme
-   * @todo add checks to prevent output unless assets exists
+   * Print inline scripts and styles
    */
-  public function print_site_favicons()
+  public function print_scripts_head_meta()
   {
-    $favicon_path = '/assets/img/favicon/';
-    $favicon_files = array(
-      "apple-touch-icon.png",
-      "favicon-32x32.png",
-      "favicon-16x16.png",
-      "manifest.json",
-      "favicon.ico",
-      "browserconfig.xml",
-    );
-    $favi = THEME_URI . $favicon_path; ?>
+    global $pagenow;
+    $this->site_favicons();
+  }
+
+  private function site_favicons()
+  {
+    $favi = THEME_URI . '/assets/img/favicon/'; ?>
 
     <link rel="apple-touch-icon" sizes="180x180" href="<?= $favi; ?>apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="<?= $favi; ?>favicon-32x32.png">
@@ -235,7 +283,22 @@ class Base_Theme extends BB_Theme {
     <link rel="shortcut icon" href="<?= $favi; ?>favicon.ico">
     <meta name="msapplication-config" content="<?= $favi; ?>browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+    <meta property="og:url" content="<?php echo get_site_url(); ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<?php echo get_bloginfo('title'); ?>" />
+    <meta property="og:description" content="<?php echo get_bloginfo('description'); ?>" />
+    <?php if (get_field('social_media_share_image', 'options')) { ?>
+      <meta property="og:image" content="<?php echo get_field('social_media_share_image', 'options')['url']; ?>" />
+    <?php } ?>
   <?php
+  }
+
+  public function print_scripts_before_body_end ()
+  {
+    $tracking_scripts = get_field( 'tracking_scripts', 'options' );
+
+    // dangerously output code that is a script, style, or meta tag
+    echo strip_tags( $tracking_scripts, '<script><style><meta>' );
   }
 
   /**
@@ -331,59 +394,8 @@ class Base_Theme extends BB_Theme {
     /* Add it as first item in the row */
     array_unshift( $buttons, 'styleselect' );
     return $buttons;
-	}
+  }
 
-	/**
-	 * Add critical css file to <head></head>
-	 */
-	public function add_critical_css() {
-		$file = TEMPLATEPATH . '/assets/critical.min.css';
-		$file_content = @file_get_contents( $file );
-		// note that we might need to write a filter here to dynamically replace filepaths to font files
-		// If a reference is needed, this has been done on a Well+Good project
-		if (!empty($file_content)) {
-			printf('<style type="text/css">%s</style>', $file_content);
-		}
-	}
-
-	/**
-	 * Load main css (rest styles) file asynchrounsly in footer
-	 */
-	public function load_rest_css() {
-		$theme     = wp_get_theme();
-		$theme_ver = $theme->version;
-		if ( !IS_DEV ) {
-			?>
-			<noscript id="deferred-styles">
-				<link rel="stylesheet"
-					  href="<?php echo esc_url( get_template_directory_uri() . '/assets/main.min.css?ver=' . $theme_ver ); ?>">
-			</noscript>
-			<script>
-				var loadDeferredStyles = function () {
-					var addStylesNode = document.getElementById("deferred-styles");
-					var replacement = document.createElement("div");
-					replacement.innerHTML = addStylesNode.textContent;
-					document.body.appendChild(replacement)
-					addStylesNode.parentElement.removeChild(addStylesNode);
-				};
-				var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-					webkitRequestAnimationFrame || msRequestAnimationFrame;
-				if (raf) raf(function () {
-					window.setTimeout(loadDeferredStyles, 0);
-				});
-				else window.addEventListener('load', loadDeferredStyles);
-			</script>
-			<?php
-		}
-	}
-
-	/**
-	 * Add support to upload SVG icons
-	 */
-	public function cc_mime_types($mimes) {
-		$mimes['svg'] = 'image/svg+xml';
-		return $mimes;
-	}
 }
 
 new Base_Theme();
