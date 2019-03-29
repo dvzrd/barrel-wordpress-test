@@ -1,9 +1,11 @@
 .footer {
   background-color: $black;
   margin-top: 1.8rem;
+
   @include break--sm {
     margin-top: 2.7rem;
   }
+
   @include break--md {
     margin-top: 3.6rem;
   }
@@ -30,11 +32,14 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+
       & ul {
         display: flex;
+
         & li {
           padding-left: 0.9rem;
           font-size: 1.35rem;
+
           &:hover {
             color: $white;
           }
@@ -42,6 +47,7 @@
       }
     }
   }
+
   &__logo {
     width: 50%;
     flex: 1;

@@ -27,6 +27,7 @@
       margin-right: auto;
     }
   }
+
   &__sponsor {
     flex: 1;
     flex-grow: 0;
@@ -45,7 +46,9 @@
         width: 5.04rem;
       }
     }
-  } &__social {
+  }
+
+  &__social {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -61,6 +64,7 @@
           color: $gold;
           text-decoration: none;
           padding-left: 0.9rem;
+
           &:hover {
             color: $white;
           }
@@ -68,5 +72,4 @@
       }
     }
   }
-
 }
