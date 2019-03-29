@@ -3,70 +3,6 @@
     "title": "Theme Options",
     "fields": [
         {
-            "key": "field_5b322d704713b",
-            "label": "Logos",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_5b322cbdf01b5",
-            "label": "Brand Logo",
-            "name": "brand_logo",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_5b324208d062e",
-            "label": "Sponsor Logo",
-            "name": "sponsor_logo",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_5894a8f880421",
             "label": "Images",
             "name": "",
@@ -207,30 +143,6 @@
             ]
         },
         {
-            "key": "field_5b33701024924",
-            "label": "Social Media Share Image",
-            "name": "social_media_share_image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_585ac08d8fdcd",
             "label": "Newsletter",
             "name": "",
@@ -266,8 +178,8 @@
             "append": ""
         },
         {
-            "key": "field_590391c1e0755",
-            "label": "Tracking Scripts",
+            "key": "field_5bad302307623",
+            "label": "Development",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -282,11 +194,11 @@
             "endpoint": 0
         },
         {
-            "key": "field_590391d4e0756",
-            "label": "Tracking Scripts",
-            "name": "tracking_scripts",
-            "type": "textarea",
-            "instructions": "Paste any tracking scripts here. They will be executed on every page.",
+            "key": "field_5bad2fc007622",
+            "label": "Proxy Images",
+            "name": "proxy_images",
+            "type": "true_false",
+            "instructions": "On development environments, we have the option to request any files from the uploads directory from the \"develop\" environment of this account. This allows us to avoid downloading the site's uploads directory. You can enable\/disable that option here.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -294,11 +206,11 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -318,5 +230,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1530097705
+    "modified": 1538076728
 }

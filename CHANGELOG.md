@@ -1,0 +1,149 @@
+# Change Log
+All notable changes to this project will be documented in this file.
+
+## 1.1.0 - 2019-03-29
+### CHANGED:
+- Process scripts/styles 
+- Feature/tweak 
+- Chore: fix editorconfig violations 
+- Chore: fix stylelint regressions 
+- Chore: try to fix editorconfig violations 
+- Update package files and stylesheet 
+- Update package.json with relevant script aliases 
+- Fix loop module 
+- Fix bad merge with upstream 
+- Modify hardcoded string with string translation call 
+- Update theme from upstream dev 
+- Copy theme to dedicated dir 
+- Disable cache key 
+- Update formatting and echo vs print usage in test json script 
+- Chore: clean up colors, spacing, and new lines in deploy script 
+- Update scripts 
+- Modify scripts for singular color script implementation 
+- Update clone script 
+- Update import git remote script 
+- Add environment block to gitlab ci config 
+- Add loop module script, reset tag script, and set env url script 
+- Add developer init script 
+- Add colors script 
+- Modify gitlab ci config with condensed variables 
+- Update package-lock.json 
+- Add find and replace for some missing targets to clone script 
+- Remove earlier attempt to activate theme in the md creation block 
+- Update prepare script to build scripts after gitflow start 
+- Update prepare script to exit on help, add highlight colors 
+- Update deploy script 
+- Update test_grammars.sh 
+- Update test_modules script with constructive error output 
+- Update prepare with prompt to install dependencies 
+- Update prepare script with prompt for finishing gitflow 
+- Update npm test 
+- Update test_grammars.sh 
+- Update .editorconfig rule to allow json files to end with new lines 
+- Update changelog and bump versions 
+- Switch postcss mixin dependency 
+- Update changelog and bump versions 
+- Relocate changelog and track deferred styles 
+- Update changelog and bump versions 
+- Process scripts/styles 
+- Modify the target branches that will be triggered on CI 
+- Add doc block for jquery_reregister function 
+- Modify src folder documentation for critical styles 
+- Add note on barrel-cli usage 
+- Update documentation 
+- Update the theme readme documentation 
+- Modify test grammars script 
+- Optimize wp-config to redirect non-https traffic to https 
+- Update CI to use latest docker image 
+- Remove scripts made redundant by reduction 
+- Remove duplicate file 
+- Note potential false-positive if env vars missing 
+- Add retry param to test stages 
+- Add 50kb threshold to main style inline injection 
+- Remove extraneous data env clone 
+- Conform to editorconfig styles 
+- Fix grammars 
+- Update image.css and readme 
+- Update critical css workflow to invert logic 
+- Update image module css and cptui json 
+- Update indetnation issues 
+- Update package lock 
+- Update svg storage path 
+- Update social icons module 
+- Add merge_request.sh to bash script lib 
+- Add social icons module 
+- Switch to bash invoke 
+- Add json test to test_grammars 
+- Add json lint to grammars test 
+- Switch theme name to env variable, fix copy errors, add more detailed logging 
+- Remove count variable and add line breaks 
+- Remove ripgrep dependency 
+- Remove extra linebreaks 
+- Add initial script 
+- Change method to check if has class to existing dom.js function 
+- Change method setStyle to existing dom.js function 
+- Update const variable for delay timing 
+- Change method getData using existing dom.js function 
+- Add fallback in case wrapper element is not available 
+- Change method test objectFit 
+- Change adding class using existing dom.js method 
+- Change object name to prevent confuse 
+- Add updateLazyLoad() fn to module image 
+- Clean up multidev deploy script 
+- Update doc for deploy script 
+- Fix branch targeting for multidev deploy 
+- Remove redundant CI jobs for deploys 
+- Adjust status output in multidev deploy script 
+- Refactor multidev auto-deploy to work with multiple branch names/types 
+- Rename script to reduce scripting for auto-deploys 
+- Tweak doc in multidev remove script 
+- Fix tput command in multidev remove script 
+- Add new test script 
+- Update multidev remove script 
+- Add character limit to target multidev env 
+- Fix MD-Remove script 
+- Condense related test jobs to a single job 
+- Adjust test script declarations in ci and npm manifest 
+- Fix violations with `eclint fix './**/*'` 
+- Add new npm test script parameter 
+- Add editor config to project 
+- Add multidev-remove job 
+- Trigger test run with npm script command 
+- Move merge_request stage to end and make the run manual 
+- Removed unused build stages 
+- Add `npm i` command to test style lint in CI 
+- Commit nodejs package lock file 
+- Fix all css lint issues 
+- Add new test properties to package.json to run stylelint 
+- Modify gitlab scripts for CI testing 
+- Add new dependencies for stylelint 
+- Modify stylelint rules 
+- Add process styles to beginning of script 
+- Add process files step to prepare script 
+- Add todo notes 
+- Change CI pipeline name from acceptance to deploy 
+- Add stylelint config to theme, remove from CI config 
+- Add stylelint-config-standard to deps, remove from ci config 
+- Chore: Fix formatting of babelrc json 
+- Add cache key and build theme test 
+- Update css style lint pattern 
+- Modify css lint pattern 
+- Fix output of json from bash 
+- Initial style lint test 
+- Add folder cpt-json 
+- Update queries to register taxes and taxonomies in CPT UI 
+- Fix bug load image in IE11 
+- Add support to execute script from package json 
+- Add initial script 
+- Add acf toggle for image proxy 
+- Use pantheon server variable to determine site name 
+- Remove protocol from image proxy 
+- Add uploads proxy function 
+- Use same indent style in php as all others 
+- Add block to test that files conform to editorconfig 
+- Add GitLab CI stage to automatically create merge request 
+
+## 1.0.0 - 2015-10-01
+### CHANGED:
+- Initial wordpress test theme commit
+
