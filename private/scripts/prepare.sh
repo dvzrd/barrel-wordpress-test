@@ -16,7 +16,7 @@
 ## - Runs the finish from gitflow command
 ####################################################################
 
-THEME_NAME="barrel-base"
+THEME_NAME="barrel-wordpress-test"
 SEM="minor"
 FLOW="hotfix"
 START="no"
