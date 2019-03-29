@@ -15,7 +15,7 @@ function get_social_icon($type) {
 			$icon = 'rss';
 		} else {
 			$icon_type = 'fab';
-			$icon = $type; 
+			$icon = $type;
 		}
 
 		return '<i class="' . $icon_type . ' ' . 'fa-' . $icon . '"></i>';
@@ -64,6 +64,6 @@ function get_cta($format) {
 
 function get_format_icon($format) {
 	$modified_format = get_modified_post_format($format);
-	
+
 	return '<i class="icon-' . $modified_format . '"></i>';
 }

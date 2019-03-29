@@ -1,12 +1,12 @@
-<?php 
+<?php
 /**
  * Main header block
  * @author BarrelNY
- */ 
+ */
 
 $brand__logo = get_field( 'brand_logo', 'options' ); // Array returned by Advanced Custom Fields
 $brand__logo_alt = esc_attr($brand__logo['alt']); // Grab, from the array, the 'alt'
-$brand__logo_url = esc_url($brand__logo['url']); // Grab the full size version 
+$brand__logo_url = esc_url($brand__logo['url']); // Grab the full size version
 
 $sponsor__logo = get_field( 'sponsor_logo', 'options' ); // Array returned by Advanced Custom Fields
 $sponsor__logo_alt = esc_attr($sponsor__logo['alt']); // Grab, from the array, the 'alt'

@@ -1,8 +1,8 @@
-<?php 
+<?php
 /**
  * Footer block
  * @author BarrelNY
- */ 
+ */
 
 $brand__logo = get_field( 'brand_logo', 'options' ); // Array returned by Advanced Custom Fields
 $brand__logo_alt = esc_attr($brand__logo['alt']); // Grab, from the array, the 'alt'

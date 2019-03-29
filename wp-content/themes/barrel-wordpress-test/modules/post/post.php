@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Post block
  * @author BarrelNY
@@ -6,7 +6,7 @@
 
 $post__image = featured_image_or_fallback($post);
 $post__image_position = image_custom_position($post);
-$post__icon = get_format_icon($post); 
+$post__icon = get_format_icon($post);
 $post__cta = get_cta($post); ?>
 
 <post class="post post--loop">

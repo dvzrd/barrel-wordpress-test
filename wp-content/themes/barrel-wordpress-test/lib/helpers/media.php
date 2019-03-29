@@ -184,45 +184,45 @@ function the_image_sizes_attribute( $id ) {
 
 //SVGs
 function svg($data=false,$echo=true,$inline=false,$responsive=true){
-  if ($inline):
-    $return = _structure_svg($data,$responsive);
-  else:
-    $return = _get_svg($data);
-  endif;
+	if ($inline):
+		$return = _structure_svg($data,$responsive);
+	else:
+		$return = _get_svg($data);
+	endif;
 
-  if ($echo)
-    echo $return;
+	if ($echo)
+		echo $return;
 
-  return $return;
+	return $return;
 }
 
 function _structure_svg($data,$responsive){
-  $return = '';
-  $yes = preg_match('/viewBox="(.[^"]*)"/',$data,$matches);
-  if ($yes):
-    $vb = $matches[1];
-    $nums = explode(' ',$vb);
-    $aspect = 100*(int) $nums[3] / (int) $nums[2];
+	$return = '';
+	$yes = preg_match('/viewBox="(.[^"]*)"/',$data,$matches);
+	if ($yes):
+		$vb = $matches[1];
+		$nums = explode(' ',$vb);
+		$aspect = 100*(int) $nums[3] / (int) $nums[2];
 
-    if ($responsive):
-      $return = "<div class='u-svg' style='padding-top:{$aspect}%'>{$data}</div>";
-    else:
-      $return = "<div class='u-svg' style='height:50px'>{$data}</div>";
-    endif;
-  endif;
-  return $return;
+		if ($responsive):
+			$return = "<div class='u-svg' style='padding-top:{$aspect}%'>{$data}</div>";
+		else:
+			$return = "<div class='u-svg' style='height:50px'>{$data}</div>";
+		endif;
+	endif;
+	return $return;
 }
 
 function _get_svg($name){
-  $dir  = TEMPLATEPATH.'/assets/img/';
-  $path = $dir.$name.'.svg';
+	$dir  = TEMPLATEPATH.'/assets/img/';
+	$path = $dir.$name.'.svg';
 
-  if ( $name && file_exists($path) ){
-    $svg = file_get_contents($path);
+	if ( $name && file_exists($path) ){
+		$svg = file_get_contents($path);
 
-    return $svg;
-  }
-  return '';
+		return $svg;
+	}
+	return '';
 }
 
 function get_video_element($url = '', $attrs = '', $classes = '') {
@@ -250,10 +250,10 @@ function the_lazy_img( $id, $size, $class, $sizes = '', $alt = '' ) {
 		empty( $class ) ? '' : "class=\"${class}\"",
 		$blank,
 		$img[0],
-    $img[0],
+		$img[0],
 		$srcset_attr,
-    empty( $sizes ) ? '' : "sizes=\"${sizes}\"",
-    $alt
+		empty( $sizes ) ? '' : "sizes=\"${sizes}\"",
+		$alt
 	);
 }
 
@@ -261,7 +261,7 @@ function the_lazy_img( $id, $size, $class, $sizes = '', $alt = '' ) {
 function image_custom_position($query) {
 	if (has_post_thumbnail( $query->ID )) {
 		return get_field('image__focus', get_post_thumbnail_id($query->ID));
-	}  
+	}
 	return 'center center';
 }
 // /WORKING
@@ -274,7 +274,7 @@ function image_custom_position($query) {
 function featured_image_or_fallback($query) {
 	if (has_post_thumbnail( $query->ID )) {
 		return wp_get_attachment_image_src(get_post_thumbnail_id($query->ID), 'single-post-thumbnail')[0];
-	}  
+	}
 	return get_template_directory_uri() . '/assets/img/fallback.jpg';
 }
 

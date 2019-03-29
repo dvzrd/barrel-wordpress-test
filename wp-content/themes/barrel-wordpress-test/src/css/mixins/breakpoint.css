@@ -1,9 +1,9 @@
 @mixin break--sm {
-	@media (min-width: 600px) { @content; }
+  @media (min-width: 600px) { @content; }
 }
 @mixin break--md {
-	@media (min-width: 1000px) { @content; }
+  @media (min-width: 1000px) { @content; }
 }
 @mixin break--lg {
-	@media (min-width: 2000px) { @content; }
+  @media (min-width: 2000px) { @content; }
 }
