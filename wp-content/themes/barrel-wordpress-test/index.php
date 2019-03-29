@@ -4,7 +4,7 @@ get_header();
 
 <div class="loop" data-module="loop">
 	<div class="container">
-		<h2 class="loop__title">Recent Articles</h2>
+		<h2 class="loop__title"><?php _e('Recent Articles', 'barrel-wordpress-test'); ?></h2>
 
 		<?php
 		$recent = new WP_Query( 'offset=1');
