@@ -1,0 +1,10 @@
+.container {
+	max-width: $container-max-width;
+    padding: 0 0.9rem;
+	@include break--sm {
+		padding: 0 1.35rem;
+    }
+	@include break--md {
+		padding: 0 2.25rem;
+    }
+}

@@ -1,0 +1,4 @@
+production:
+  target: https://barrelbasetheme.lndo.site
+development:
+  target: https://barrelbasetheme.lndo.site
