@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face {
   font-family: 'open-sans';
   src: url('../../assets/fonts/open-sans/open-sans-400.eot');
@@ -5,10 +6,25 @@
        url('../../assets/fonts/open-sans/open-sans-400.woff2') format('woff2'),
        url('../../assets/fonts/open-sans/open-sans-400.woff') format('woff'),
        url('../../assets/fonts/open-sans/open-sans-400.ttf') format('truetype');
+=======
+
+/**
+ * This is the definitive place for
+ * the site's typographic styles.
+ *
+ * i.e h1, h2, h3, p, li, a, etc
+ */
+body {
+  color: var(--black);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  line-height: 1.7;
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404
   font-weight: 400;
   font-style: normal;
 }
 
+<<<<<<< HEAD
 @font-face {
   font-family: 'open-sans';
   src: url('../../assets/fonts/open-sans/open-sans-600.eot');
@@ -16,6 +32,14 @@
        url('../../assets/fonts/open-sans/open-sans-600.woff2') format('woff2'),
        url('../../assets/fonts/open-sans/open-sans-600.woff') format('woff'),
        url('../../assets/fonts/open-sans/open-sans-600.ttf') format('truetype');
+=======
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404
   font-weight: 600;
   font-style: normal;
 }
@@ -96,6 +120,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD
 .icon-article:before {
   content: "\61";
 }
@@ -2799,4 +2824,89 @@
     overflow:visible;
     position:static;
     width:auto
+=======
+.h1 {
+  line-height: 1.1px;
+}
+
+.h2 {
+  line-height: 1.3px;
+}
+
+.h3 {
+  line-height: 1.5px;
+}
+
+.h4 {
+  line-height: 1.5px;
+}
+
+.h5 {
+  line-height: 1.6px;
+}
+
+.h6 {
+  line-height: 1.6px;
+}
+
+.p {
+  line-height: 1.4px;
+}
+
+.link {
+  color: inherit;
+}
+
+.blockquote {
+  margin: 3rem 0;
+  padding-left: 2rem;
+  border-left: 4px solid #148ecc;
+}
+
+.hr {
+  display: block;
+  background-color: currentColor;
+  color: inherit;
+  border: 0;
+  height: 1px;
+  width: 100%;
+  margin: 0;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+.type--reset {
+  margin: 0;
+  line-height: 1;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.light {
+  font-weight: 100;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.decoration--none {
+  text-decoration: none;
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404
 }

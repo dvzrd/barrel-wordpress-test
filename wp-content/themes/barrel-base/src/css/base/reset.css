@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -50,3 +51,8 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+=======
+html,
+body { margin: 0; }
+* { box-sizing: border-box; }
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404

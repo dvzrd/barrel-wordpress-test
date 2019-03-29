@@ -1,12 +1,18 @@
 {
   "name": "barrel-base",
-  "version": "1.12.0",
+  "version": "2.1.0",
   "scripts": {
     "start": "brrl -w",
-    "build": "brrl -b -e production; npm run critical",
-    "critical": "postcss src/css/main.css -o assets/critical.min.css --config tasks/",
+    "build": "brrl -b -e production; npm run build:lazy-css",
+    "build:lazy-css": "postcss src/css/main.css -o assets/deferred.min.css --config tasks/",
     "dependencies": "brrl-install",
-    "create-module": "sh ../../../private/scripts/create_module.sh"
+    "create-module": "sh ../../../private/scripts/create_module.sh",
+    "remove-multidev": "sh ../../../private/scripts/multidev_remove.sh",
+    "test": "npm run test:css_lint && npm run test:js_lint && npm run test:editorconfig && npm run test:json_lint",
+    "test:editorconfig": "editorconfig-checker ./**/*",
+    "test:js_lint": "standard",
+    "test:css_lint": "stylelint src/css/*.css modules/**/*.css",
+    "test:json_lint": "sh ../../../private/scripts/test_json.sh"
   },
   "devDependencies": {
     "@barrelny/cli": "^1.0.3",
@@ -21,6 +27,7 @@
     "css-loader": "^0.28.11",
     "cssnano": "^3.10.0",
     "dom-event": "^1.0.0",
+    "editorconfig-checker": "^1.3.3",
     "es6-promise": "^4.2.4",
     "eslint-loader": "^2.1.0",
     "file-loader": "^1.1.11",
@@ -38,15 +45,22 @@
     "postcss-import": "^10.0.0",
     "postcss-inline-svg": "^3.1.1",
     "postcss-loader": "^2.1.6",
-    "postcss-sassy-mixins": "^2.1.0",
+    "postcss-mixins": "^6.2.1",
     "precss": "^2.0.0",
     "standard": "^11.0.1",
     "style-loader": "^0.18.2",
+    "stylelint": "^9.6.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-webpack-plugin": "^0.10.5",
     "tweezer.js": "^1.4.0",
     "url-loader": "^1.1.1",
     "webpack": "^4.19.1"
   },
   "dependencies": {
+<<<<<<< HEAD
     "scrollreveal": "^4.0.5"
+=======
+    "lodash.throttle": "^4.1.1"
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404
   }
 }

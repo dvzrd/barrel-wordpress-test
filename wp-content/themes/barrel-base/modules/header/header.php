@@ -4,6 +4,7 @@
  * @author BarrelNY
  */ 
 
+<<<<<<< HEAD
 $brand__logo = get_field( 'brand_logo', 'options' ); // Array returned by Advanced Custom Fields
 $brand__logo_alt = esc_attr($brand__logo['alt']); // Grab, from the array, the 'alt'
 $brand__logo_url = esc_url($brand__logo['url']); // Grab the full size version 
@@ -37,6 +38,33 @@ $sponsor__logo_url = esc_url($sponsor__logo['url']); // Grab the full size versi
 			</div>
 		<?php endif; ?>
 
+=======
+  <div>
+    <?php if ( is_front_page() ) : ?>
+      <h1>
+        <?php bloginfo( 'name' ); ?>
+      </h1>
+      <h2><?php bloginfo( 'description' ); ?></h2>
+    <?php else : ?>
+      <p>
+        <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+          <?php bloginfo( 'name' ); ?>
+        </a>
+      </p>
+      <p><?php bloginfo( 'description' ); ?></p>
+    <?php endif; ?>
+  </div>
+
+  <?php
+    wp_nav_menu( array(
+      'container' => 'nav'
+    ) );
+  ?>
+
+  <?php the_module('social-icons'); ?>
+
+  <?php get_search_form(); ?>
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404
 
 		<?php if( have_rows('social_media_links', 'options') ): ?>
 			<div class="header__social">

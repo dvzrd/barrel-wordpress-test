@@ -1,4 +1,5 @@
 .post {
+<<<<<<< HEAD
 	display: flex;
 	flex-direction: column;
 	padding: 0.9rem 0;
@@ -177,4 +178,9 @@
 			}
 		}
 	}
+=======
+  border: 1px solid black;
+  padding: 20px;
+  display: inline-block;
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404
 }

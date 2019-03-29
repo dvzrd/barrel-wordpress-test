@@ -1,4 +1,5 @@
 .container {
+<<<<<<< HEAD
 	max-width: $container-max-width;
     padding: 0 0.9rem;
 	@include break--sm {
@@ -8,3 +9,22 @@
 		padding: 0 2.25rem;
     }
 }
+=======
+  max-width: var(--l);
+  padding-left: var(--gutter-lg);
+  padding-right: var(--gutter-lg);
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container--xxs { max-width: var(--xxs); }
+.container--xs { max-width: var(--xs); }
+.container--s { max-width: var(--s); }
+.container--ms { max-width: var(--ms); }
+.container--m { max-width: var(--m); }
+.container--ml { max-width: var(--ml); }
+.container--l { max-width: var(--l); }
+.container--xl { max-width: var(--xl); }
+.container--xxl { max-width: var(--xxl); }
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404

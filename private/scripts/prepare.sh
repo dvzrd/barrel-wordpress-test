@@ -4,7 +4,9 @@
 ## This prepare script is usually for finishing a release or hotfix.
 ##
 ## Assumptions: the hotfix/release branch has already been created.
+##   The theme's node_modules directory is up to date (`npm i` has been run)
 ## To start the hotfix/release, run with -s=yes
+##
 ##
 ## From the hotfix/v0.0.0 or release/v0.0.0 branch, this script:
 ## - Updates the Changelog (automatically with commit messages)
@@ -20,11 +22,7 @@ FLOW="hotfix"
 START="no"
 
 # Terminal colors
-DEFAULT=$(tput setaf 7)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-BLUE=$(tput setaf 4)
+source ./private/scripts/colors.sh
 
 # handle arguments
 for i in "$@"; do
@@ -84,6 +82,18 @@ cd $THEME_PATH
 CWD=$(pwd)
 printf "\nCurrent working directory is now: ${BLUE}$CWD${DEFAULT}\n"
 
+# install dependencies from npm
+read -r -p "Install locked dependencies? [y/N] " response
+case "$response" in
+    [yY][eE][sS]|[yY]) 
+    printf "\nInstalling dependencies..."
+    npm ci
+    if [[ "$?" -ne 0 ]]; then
+        echo "${RED}Failed to install build files!${DEFAULT}"
+        exit 1
+    fi
+esac
+
 # get next version with npm, unless you find a clever regex that works
 NEXT_VERSION=$(eval $AUTO_INC_VERSION_WITH_NPM)
 git reset --hard HEAD
@@ -100,6 +110,18 @@ ALT_NEXT_VERSION=${NEXT_VERSION:1}
 if [ "$START" == "yes" ]; then
     git flow $FLOW start $NEXT_VERSION
 fi
+
+# check to process styles and scripts before continuing
+read -r -p "Do you want to build and commit scripts/styles? [y/N] " response
+case "$response" in
+    [yY][eE][sS]|[yY]) 
+    printf "\nBuilding scripts and styles..."
+    npm run build
+    printf "\nCommitting styles and scripts..."
+    git add --all
+    git commit -am "Process scripts/styles"
+    printf "\n\n${GREEN}done.${DEFAULT}\n\n"
+esac
 
 # Add new line to changelog
 printf "\nUsing git messages for CHANGELOG...\n"
@@ -148,15 +170,22 @@ printf "\nNext version is: ${YELLOW}"
 eval $AUTO_INC_VERSION_WITH_NPM
 printf "${DEFAULT}\n"
 
-read -r -p "Finish and commit? [y/N] " response
+read -r -p "Commit versioning changes? [y/N] " response
 case "$response" in
     [yY][eE][sS]|[yY]) 
     printf "\nProceeding with package ${GREEN}$NEXT_VERSION${DEFAULT}, "
     printf "last version was ${YELLOW}$CURR_VERSION${DEFAULT}"
     printf "\n\n${GREEN}done.${DEFAULT}\n\n"
 	git commit -am "Update changelog and bump versions" 
-    printf "\nFinish up with gitflow command ${BLUE}git flow $FLOW finish $NEXT_VERSION${DEFAULT}"
-    git flow $FLOW finish $NEXT_VERSION
+esac
+
+read -r -p "Finish up with gitflow? [y/N]" response
+case "$response" in
+    [yY][eE][sS]|[yY]) 
+    printf "\nFinishing up with gitflow command ${BLUE}git flow $FLOW finish $NEXT_VERSION${DEFAULT}...\n"
+    export GIT_MERGE_AUTOEDIT=no
+    git flow $FLOW finish -m "Tag $NEXT_VERSION" $NEXT_VERSION
+    unset GIT_MERGE_AUTOEDIT
     exit 0
     ;;
     *)
@@ -165,5 +194,4 @@ case "$response" in
     exit 1
     ;;
 esac
-
 exit

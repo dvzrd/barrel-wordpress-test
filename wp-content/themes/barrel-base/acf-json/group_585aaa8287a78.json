@@ -266,8 +266,13 @@
             "append": ""
         },
         {
+<<<<<<< HEAD
             "key": "field_590391c1e0755",
             "label": "Tracking Scripts",
+=======
+            "key": "field_5bad302307623",
+            "label": "Development",
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -282,11 +287,19 @@
             "endpoint": 0
         },
         {
+<<<<<<< HEAD
             "key": "field_590391d4e0756",
             "label": "Tracking Scripts",
             "name": "tracking_scripts",
             "type": "textarea",
             "instructions": "Paste any tracking scripts here. They will be executed on every page.",
+=======
+            "key": "field_5bad2fc007622",
+            "label": "Proxy Images",
+            "name": "proxy_images",
+            "type": "true_false",
+            "instructions": "On development environments, we have the option to request any files from the uploads directory from the \"develop\" environment of this account. This allows us to avoid downloading the site's uploads directory. You can enable\/disable that option here.",
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -294,11 +307,19 @@
                 "class": "",
                 "id": ""
             },
+<<<<<<< HEAD
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
             "rows": "",
             "new_lines": ""
+=======
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404
         }
     ],
     "location": [
@@ -318,5 +339,10 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
+<<<<<<< HEAD
     "modified": 1530097705
 }
+=======
+    "modified": 1538076728
+}
+>>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404
