@@ -1,15 +1,4 @@
 .container {
-<<<<<<< HEAD
-	max-width: $container-max-width;
-    padding: 0 0.9rem;
-	@include break--sm {
-		padding: 0 1.35rem;
-    }
-	@include break--md {
-		padding: 0 2.25rem;
-    }
-}
-=======
   max-width: var(--l);
   padding-left: var(--gutter-lg);
   padding-right: var(--gutter-lg);
@@ -27,4 +16,3 @@
 .container--l { max-width: var(--l); }
 .container--xl { max-width: var(--xl); }
 .container--xxl { max-width: var(--xxl); }
->>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404

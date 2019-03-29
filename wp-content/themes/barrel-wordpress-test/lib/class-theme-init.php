@@ -38,8 +38,8 @@ class Base_Theme extends BB_Theme {
 
 
   /**
-   * Add a global Theme Settings page in admin area
-   */
+  * Add a global Theme Settings page in admin area
+  */
   public function add_options_page() {
     if ( function_exists('acf_add_options_page')) {
       acf_add_options_page( array (
@@ -53,8 +53,8 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Register post types used in this theme
-   */
+  * Register post types used in this theme
+  */
   public function add_post_types()
   {
     $ctp_post_types = $this->cpt_config_data();
@@ -67,8 +67,8 @@ class Base_Theme extends BB_Theme {
   }
 
   /*
-   * Enable support for Post Formats.
-   */
+  * Enable support for Post Formats.
+  */
   public function add_post_formats()
   {
     // Rename any of the post formats
@@ -91,8 +91,8 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Register taxonomies used in this theme
-   */
+  * Register taxonomies used in this theme
+  */
   public function add_taxonomies()
   {
     $cpt_taxonomies = $this->cpt_config_data( false );
@@ -150,8 +150,8 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Add theme support for features required in this theme
-   */
+  * Add theme support for features required in this theme
+  */
   public function add_theme_supports(){
     add_theme_support( 'title-tag' );
     add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption' ) );
@@ -187,17 +187,17 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Body class when info bar is active
-   * @param  array $class Array of classes
-   * @return array
-   */
+  * Body class when info bar is active
+  * @param  array $class Array of classes
+  * @return array
+  */
   public function body_class( $class ) {
     return $class;
   }
 
   /**
-   * Exclude attachments from search results on the front-end
-   */
+  * Exclude attachments from search results on the front-end
+  */
   public function exclude_attachments_from_search() {
     if ( is_admin() ) {
       return;
@@ -209,16 +209,16 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Rename Default Template to Basic Page
-   */
+  * Rename Default Template to Basic Page
+  */
   public function rename_default_template()
   {
     return __('Basic Page', 'barrel-base');
   }
 
   /**
-   * Enqueue JavaScript and vendor dependencies
-   */
+  * Enqueue JavaScript and vendor dependencies
+  */
   public function enqueue_scripts_and_styles() {
     $handle = self::$text_domain;
     $git_version = substr( exec( "git rev-parse HEAD" ), 0, 6 );
@@ -249,10 +249,10 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Provide size choices for media library
-   * @param  string[] $sizes
-   * @return string[]
-   */
+  * Provide size choices for media library
+  * @param  string[] $sizes
+  * @return string[]
+  */
   public function image_size_names_choose( $sizes ) {
     return array_merge( $sizes, array(
       'tiny'   => __( 'Tiny Image', 'barrel-base' ),
@@ -263,8 +263,8 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Print inline scripts and styles
-   */
+  * Print inline scripts and styles
+  */
   public function print_scripts_head_meta()
   {
     global $pagenow;
@@ -302,11 +302,11 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Register image sizes to ensure whatever image sizes client uploads will properly get
-   * scaled down to ensure good load time.
-   *
-   * These sizes already account for 2x retina displays.
-   */
+  * Register image sizes to ensure whatever image sizes client uploads will properly get
+  * scaled down to ensure good load time.
+  *
+  * These sizes already account for 2x retina displays.
+  */
   public function register_image_sizes() {
 
     // large image size is used for full-width cover images
@@ -323,8 +323,8 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Register navigation menu areas that can be configurable via Appearance -> Menus
-   */
+  * Register navigation menu areas that can be configurable via Appearance -> Menus
+  */
   public function register_menus() {
     register_nav_menus( array(
       'header-primary'     => __( 'Header Primary Menu', self::$text_domain ),
@@ -335,16 +335,16 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Shortcodes
-   */
+  * Shortcodes
+  */
 
   public function shortcode_year() {
     return date('Y');
   }
 
   /**
-   * WYSIWYG / Format Dropdown
-   */
+  * WYSIWYG / Format Dropdown
+  */
   public function insert_formats( $init_array ) {
     $style_formats = array(
       array(
@@ -388,8 +388,8 @@ class Base_Theme extends BB_Theme {
   }
 
   /**
-   * Add Buttons To WP Editor Toolbar.
-   */
+  * Add Buttons To WP Editor Toolbar.
+  */
   public function add_mce_button( $buttons, $editor_id ){
     /* Add it as first item in the row */
     array_unshift( $buttons, 'styleselect' );
@@ -399,4 +399,3 @@ class Base_Theme extends BB_Theme {
 }
 
 new Base_Theme();
-

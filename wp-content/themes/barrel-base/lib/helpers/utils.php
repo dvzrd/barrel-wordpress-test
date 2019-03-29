@@ -32,4 +32,3 @@ function url_compare($url, $rel) {
   $rel = trailingslashit($rel);
   return ((strcasecmp($url, $rel) === 0) || root_relative_url($url) == $rel);
 }
-

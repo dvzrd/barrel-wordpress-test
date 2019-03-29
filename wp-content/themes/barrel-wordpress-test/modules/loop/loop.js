@@ -8,7 +8,7 @@ import ScrollReveal from 'scrollreveal'
 function Loop () {
   const posts = document.querySelectorAll('.post')
   var sr = ScrollReveal({ reset: true })
-  sr.reveal('.post--loop', {duration: 900, scale: 1})
+  sr.reveal('.post--loop', { duration: 900, scale: 1 })
 
   Array.from(posts).filter(function (post) {
     return post.querySelector('.post--link') !== null

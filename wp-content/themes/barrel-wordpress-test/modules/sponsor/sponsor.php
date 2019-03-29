@@ -1,10 +1,10 @@
-<?php 
+<?php
 /**
  * Sponsor block above header
  * @author BarrelNY
- */ 
+ */
 ?>
 
 <sponsor class="sponsor">
-	Sponsored By
+  Sponsored By
 </sponsor>
