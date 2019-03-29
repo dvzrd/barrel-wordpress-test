@@ -6,5 +6,5 @@
 ?>
 
 <sponsor class="sponsor">
-	Sponsored By
+  Sponsored By
 </sponsor>

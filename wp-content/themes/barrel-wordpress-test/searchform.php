@@ -1,3 +1,3 @@
 <?php
-	the_module('search-form');
+  the_module('search-form');
 ?>
