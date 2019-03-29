@@ -1,4 +1,4 @@
 production:
-  target: https://barrelbasetheme.lndo.site
+  target: https://barrel-wordpress-test.lndo.site
 development:
-  target: https://barrelbasetheme.lndo.site
+  target: https://barrel-wordpress-test.lndo.site

@@ -9,7 +9,7 @@ $post__image_position = image_custom_position($post);
 $post__icon = get_format_icon($post);
 $post__cta = get_cta($post); ?>
 
-<post class="post post--loop">
+<article class="post post--loop">
   <a href="<?php the_permalink(); ?>" class="post__image post--link">
     <span style="background-image:url('<?php echo $post__image; ?>');background-position:<?php echo $post__image_position; ?>">
     </span>
@@ -28,4 +28,4 @@ $post__cta = get_cta($post); ?>
       <?php echo $post__cta; ?>
     </a>
   </div>
-</post>
+</article>

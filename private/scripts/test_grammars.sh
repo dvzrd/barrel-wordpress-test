@@ -54,7 +54,7 @@ fi
 echo $OK
 
 echo "${YELLOW}Testing js against standardjs...${DEFAULT}"
-standard
+npm run test:js_lint
 if [[ "$?" -ne 0 ]]; then
     echo "${RED}Conformance to standardjs failed!${DEFAULT}"
     ERRORS=$(($ERRORS+1))

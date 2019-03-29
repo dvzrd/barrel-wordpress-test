@@ -1,8 +1,8 @@
 .header {
   top: -1px;
   position: sticky;
-  background-color: $black;
-  max-width: $container-max-width;
+  background-color: var(--blackish);
+  max-width: var(--container-max-width);
   padding: 0.9rem 0;
   z-index: 3;
 
@@ -40,8 +40,8 @@
 
       & span {
         line-height: 2.07rem;
-        color: $gold;
-        border: solid 2px $gold;
+        color: var(--gold);
+        border: solid 2px var(--gold);
         text-transform: uppercase;
         width: 5.04rem;
       }
@@ -61,12 +61,12 @@
 
         & a {
           font-size: 1.26rem;
-          color: $gold;
+          color: var(--gold);
           text-decoration: none;
           padding-left: 0.9rem;
 
           &:hover {
-            color: $white;
+            color: var(--white);
           }
         }
       }

@@ -1,6 +1,6 @@
 .sponsor {
   display: flex;
-  background-color: $gold;
+  background-color: var(--gold);
   width: 100%;
   justify-content: center;
   font-size: 0.81rem;

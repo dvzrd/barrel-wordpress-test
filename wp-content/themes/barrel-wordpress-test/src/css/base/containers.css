@@ -1,12 +1,12 @@
 .container {
-  max-width: $container-max-width;
+  max-width: var(--container-max-width);
   padding: 0 0.9rem;
 
-  @include break--sm {
+  @media(--sm) {
     padding: 0 1.35rem;
   }
 
-  @include break--md {
+  @media(--md) {
     padding: 0 2.25rem;
   }
 }
