@@ -29,7 +29,7 @@
     "dom-event": "^1.0.0",
     "editorconfig-checker": "^2.0.6",
     "es6-promise": "^4.2.4",
-    "eslint-loader": "^2.1.0",
+    "eslint-loader": "^2.1.2",
     "file-loader": "^1.1.11",
     "globby": "^5.0.0",
     "gulp": "^3.9.1",
@@ -51,8 +51,8 @@
     "style-loader": "^0.18.2",
     "stylelint-config-standard": "^18.2.0",
     "tweezer.js": "^1.4.0",
-    "url-loader": "^1.1.1",
-    "webpack": "^4.19.1"
+    "url-loader": "^1.1.2",
+    "webpack": "^4.29.6"
   },
   "dependencies": {
     "scrollreveal": "^4.0.5"

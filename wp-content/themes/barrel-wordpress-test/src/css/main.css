@@ -1,7 +1,6 @@
 /** Imports from src directory */
 @import "base/reset.css";
 @import "base/variables.css";
-@import "mixins/breakpoint.css";
 @import "base/typography.css";
 @import "base/containers.css";
 @import "base/global.css";
