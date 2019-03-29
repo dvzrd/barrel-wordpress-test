@@ -1,12 +1,5 @@
 ## CSS and JS Source Code
 
-<<<<<<< HEAD
--- Mixins, variables, typography, and global features for the site should go in the scss/base folder. 
-
--- Any new file added in scss/base should be imported in the main.scss file found in scss/base.
-
--- Any new modules added should also be added imported in main.scss found in scss/base.
-=======
 ### CSS Source File Guidelines
 - Mixins, variables, typography, functional CSS, and global features for the site should go in the `css/base` folder. 
 - Any new file added in css/base should be imported in the main.css file found in `css/base`.
@@ -73,4 +66,3 @@ the only thing we really need to change for the deferred process. I would love t
 #### Known Issues/ToDos
 1. Right now, the deferred style build doesn't handle _other_ comments well. Any comment that isn't related to the build task _should_ be
 getting stripped out with the `cssnano` plugin, but they're still showing up in the `deferred.min.css` file.
->>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404

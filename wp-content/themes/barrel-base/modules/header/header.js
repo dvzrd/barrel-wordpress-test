@@ -3,9 +3,9 @@
  * @constructor
  * @param {Object} el - The site header element.
  */
-function Sponsor (el) {
+function Header (el) {
   this.el = el
-  console.warn('Initialized `Sponsor` module.')
+  console.warn('Initialized `Header` module.')
 }
 
-export default Sponsor
+export default Header

@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-$container-max-width: 2000px;
-
-$white: #FFFFFF;
-$gold: #B5A484;
-$black: #1E1E1E;
-$red: #BD3131;
-$red--dark: #932525;
-$tan: #F3F1ED;
-=======
 :root {
   /* Padding */
   --padding: 20px;
@@ -57,4 +47,3 @@ $tan: #F3F1ED;
 @custom-media --l (min-width: 1290px);
 @custom-media --xl (min-width: 1440px);
 @custom-media --xxl (min-width: 800px);
->>>>>>> 672a24b3a402b2774cba41d5fd45c3923f999404
