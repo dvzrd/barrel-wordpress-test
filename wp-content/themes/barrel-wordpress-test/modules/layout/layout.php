@@ -1,4 +1,8 @@
 <div class="layout" data-module="layout">
+  <?php
+    the_module('hero');
+  ?>
+
   <div class="container">
     <h2 class="layout__title"><?php _e('Recent Articles', 'barrel-wordpress-test'); ?></h2>
 

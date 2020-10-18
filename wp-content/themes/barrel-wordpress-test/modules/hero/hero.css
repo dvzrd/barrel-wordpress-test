@@ -1,4 +1,66 @@
 .hero {
+  display: flex;
   overflow: hidden;
   position: relative;
+  width: 100%;
+  min-height: 75vh;
+
+  &--product {
+    align-items: flex-end;
+    min-height: 75vh;
+  }
+
+  &-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    max-width: 1024px;
+
+    @media only screen and (min-width: 960px) {
+      flex-flow: row nowrap;
+    }
+  }
+
+  &-caption {
+    color: #fff;
+    flex: 1;
+    max-width: 500px;
+    margin-top: 5rem;
+    padding: 1rem;
+    text-align: center;
+
+    @media only screen and (min-width: 960px) {
+      max-width: none;
+      margin-top: 0;
+      padding: 0;
+      text-align: left;
+    }
+  }
+
+  &-context {
+    margin-top: 1rem;
+    font-weight: 400;
+  }
+
+  &-product {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    &--image {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 4rem;
+      margin-bottom: -8rem;
+
+      @media only screen and (min-width: 960px) {
+        margin-top: 10rem;
+        margin-bottom: -5rem;
+      }
+    }
+  }
 }

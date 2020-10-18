@@ -2,7 +2,6 @@
   top: -1px;
   position: sticky;
   background-color: var(--blackish);
-  max-width: var(--container-max-width);
   padding: 0.9rem 0;
   z-index: 3;
 
