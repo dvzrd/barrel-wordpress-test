@@ -5,5 +5,7 @@
   */
   get_header();
 
+  the_module('layout');
+
   get_footer();
 ?>

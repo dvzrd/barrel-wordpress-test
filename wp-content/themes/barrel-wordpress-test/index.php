@@ -1,8 +1,5 @@
-<?php
-get_header();
-?>
+<?php get_header(); ?>
 
 <?php the_module('layout'); ?>
 
-<?php
-get_footer();
+<?php get_footer(); ?>

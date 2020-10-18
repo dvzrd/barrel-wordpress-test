@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Maple Never Tasted So Good",
             "placeholder": "",
             "maxlength": "",
             "rows": 2,
@@ -34,7 +34,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "url",
             "preview_size": "small",
             "library": "all",
             "min_width": "",
@@ -44,6 +44,25 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5f8cb5142b6d6",
+            "label": "Context",
+            "name": "index__context",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -51,7 +70,7 @@
             {
                 "param": "page",
                 "operator": "==",
-                "value": "6"
+                "value": "2"
             }
         ]
     ],
@@ -63,5 +82,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1530016290
+    "modified": 1603056965
 }
