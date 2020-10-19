@@ -3,27 +3,25 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  min-height: 75vh;
 
   &--product {
     align-items: flex-end;
     min-height: 75vh;
   }
 
-  &-container {
-    display: flex;
+  &__container {
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
     align-content: center;
     max-width: 1024px;
 
-    @media only screen and (min-width: 960px) {
+    @media (--md) {
       flex-flow: row nowrap;
     }
   }
 
-  &-caption {
+  &__caption {
     color: #fff;
     flex: 1;
     max-width: 500px;
@@ -31,20 +29,20 @@
     padding: 1rem;
     text-align: center;
 
-    @media only screen and (min-width: 960px) {
+    @media (--md) {
       max-width: none;
       margin-top: 0;
       padding: 0;
       text-align: left;
     }
+
+    &--context {
+      margin-top: 1rem;
+      font-weight: 400;
+    }
   }
 
-  &-context {
-    margin-top: 1rem;
-    font-weight: 400;
-  }
-
-  &-product {
+  &__product {
     flex: 1;
     display: flex;
     align-items: center;
@@ -57,7 +55,7 @@
       margin-top: 4rem;
       margin-bottom: -8rem;
 
-      @media only screen and (min-width: 960px) {
+      @media (--md) {
         margin-top: 10rem;
         margin-bottom: -5rem;
       }
