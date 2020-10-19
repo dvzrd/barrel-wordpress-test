@@ -9,7 +9,7 @@ $post__image_position = image_custom_position($post);
 $post__icon = get_format_icon($post);
 $post__cta = get_cta($post); ?>
 
-<article class="post post--loop">
+<article class="post <?php echo $pattern ?>">
   <a href="<?php the_permalink(); ?>" class="post__image post--link">
     <span style="background-image:url('<?php echo $post__image; ?>');background-position:<?php echo $post__image_position; ?>">
     </span>
@@ -24,6 +24,11 @@ $post__cta = get_cta($post); ?>
     <a href="<?php the_permalink(); ?>" class="post__meta--title post--link">
       <h4><?php the_title(); ?></h4>
     </a>
+    <?php if ( $pattern == "post--featured" ) : ?>
+      <div class="post__meta--excerpt">
+        <?php the_excerpt() ?>
+      </div>
+    <?php endif; ?>
     <a href="<?php the_permalink(); ?>" class="post__meta--cta post--link">
       <?php echo $post__cta; ?>
     </a>
